@@ -1,12 +1,6 @@
 package org.example;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import tasks.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,5 +10,11 @@ public class Main {
         //task2.getResponse();
         Task3 task3 = new Task3();
         //task3.getResponse();
+        Task4 task4 = new Task4();
+        //task4.getResponse();
+        Task5 task5 = new Task5();
+        //task5.getResponse();
+        Task6 task6 = new Task6();
+        task6.getResponse();
     }
 }

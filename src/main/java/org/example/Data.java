@@ -3,13 +3,14 @@ package org.example;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.*;
+import java.util.Objects;
 
 public class Data implements Comparable<Data>{
     public Integer id;
     public String status;
     public Name name;
-    public float monthlySalary;
+    public BigDecimal monthlySalary;
     public String birthday;
     public String username;
     public String password;
@@ -31,14 +32,6 @@ public class Data implements Comparable<Data>{
         this.id = id;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Name getName() {
         return name;
     }
@@ -47,11 +40,11 @@ public class Data implements Comparable<Data>{
         this.name = name;
     }
 
-    public float getMonthlySalary() {
+    public BigDecimal getMonthlySalary() {
         return monthlySalary;
     }
 
-    public void setMonthlySalary(float monthlySalary) {
+    public void setMonthlySalary(BigDecimal monthlySalary) {
         this.monthlySalary = monthlySalary;
     }
 
@@ -151,14 +144,39 @@ public class Data implements Comparable<Data>{
         this.objectId = objectId;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Data data = (Data) o;
+        return Objects.equals(id, data.id) && Objects.equals(status, data.status) && Objects.equals(name, data.name) && Objects.equals(monthlySalary, data.monthlySalary) && Objects.equals(birthday, data.birthday) && Objects.equals(username, data.username) && Objects.equals(password, data.password) && Objects.equals(emails, data.emails) && Objects.equals(phoneNumber, data.phoneNumber) && Objects.equals(location, data.location) && Objects.equals(website, data.website) && Objects.equals(domain, data.domain) && Objects.equals(job, data.job) && Objects.equals(creditCard, data.creditCard) && Objects.equals(uuid, data.uuid) && Objects.equals(objectId, data.objectId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, status, name, monthlySalary, birthday, username, password, emails, phoneNumber, location, website, domain, job, creditCard, uuid, objectId);
+    }
+
     @Override
     public String toString() {
         return "Data{" +
                 "id=" + id +
                 ", status='" + status + '\'' +
                 ", name=" + name +
-                ", monthlySalary='" + monthlySalary + '\'' +
-                ", birthday=" + birthday +
+                ", monthlySalary=" + monthlySalary +
+                ", birthday='" + birthday + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", emails=" + emails +

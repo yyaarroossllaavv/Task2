@@ -1,8 +1,9 @@
-package org.example;
+package tasks;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Data;
+import org.example.Root;
+import tasks.Response;
 
-import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +19,7 @@ public class Task1 implements Response {
                     .filter(d -> d.status.equals("ACTIVE"))
                     .collect(Collectors.toList());
             for (int i = 0; i < dataList1.size(); i++) {
-                System.out.println(dataList1.get(i).getName().getLast() + ". " + dataList1.get(i).getName().getMiddle().charAt(0) + ". " + dataList1.get(i).getName().getFirst().charAt(0) + ".");
+                System.out.println(dataList1.get(i).getName().getLast() + " " + dataList1.get(i).getName().getMiddle().charAt(0) + ". " + dataList1.get(i).getName().getFirst().charAt(0) + ".");
             }
         }
         catch (Exception e) {
