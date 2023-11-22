@@ -14,14 +14,10 @@ public class Task2 implements Response {
     public void getResponse() {
         try {
             Root root = getPars();
-            int count = 0;
             List<Data> dataList = root.getData();
-            List<Data> dataList1 = dataList.stream()
+            long count = dataList.stream()
                     .filter(d -> d.emails.get(0).contains("gmail.com") || d.emails.get(1).contains("gmail.com"))
-                    .collect(Collectors.toList());
-            for (int i = 0; i < dataList1.size(); i++) {
-                count++;
-            }
+                    .count();
             System.out.println(count);
         } catch (Exception e) {
             e.printStackTrace();

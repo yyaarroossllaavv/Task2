@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Name {
     public String first;
     public String middle;
@@ -27,6 +29,19 @@ public class Name {
 
     public void setLast(String last) {
         this.last = last;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Name name = (Name) o;
+        return Objects.equals(first, name.first) && Objects.equals(middle, name.middle) && Objects.equals(last, name.last);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, middle, last);
     }
 
     @Override

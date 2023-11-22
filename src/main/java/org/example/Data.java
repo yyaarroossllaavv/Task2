@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.time.*;
 import java.util.Objects;
 
-public class Data implements Comparable<Data>{
+public class Data {
     public Integer id;
     public String status;
     public Name name;
@@ -189,10 +189,5 @@ public class Data implements Comparable<Data>{
                 ", uuid='" + uuid + '\'' +
                 ", objectId='" + objectId + '\'' +
                 '}';
-    }
-
-    @Override
-    public int compareTo(Data o) {
-        return 0;
     }
 }

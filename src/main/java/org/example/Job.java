@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Job {
     public String title;
     public String descriptor;
@@ -45,6 +47,19 @@ public class Job {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return Objects.equals(title, job.title) && Objects.equals(descriptor, job.descriptor) && Objects.equals(area, job.area) && Objects.equals(type, job.type) && Objects.equals(company, job.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, descriptor, area, type, company);
     }
 
     @Override

@@ -9,6 +9,5 @@ public class Parser {
     public static Root getPars() throws IOException {
         ObjectMapper om = new ObjectMapper();
         return om.readValue(new File("data.json"), Root.class);
-
     }
 }

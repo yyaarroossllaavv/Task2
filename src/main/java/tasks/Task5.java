@@ -20,9 +20,7 @@ public class Task5 implements Response{
             List<Data> dataList1 = dataList.stream()
                     .filter(d -> d.status.equals("ACTIVE") && lessThen100(d.monthlySalary) && (d.emails.get(0).contains("example.com") || d.emails.get(1).contains("example.com")))
                     .collect(Collectors.toList());
-            for (int i = 0; i < dataList1.size(); i++) {
-                System.out.println(dataList1.get(i).getName().getLast() + " " + dataList1.get(i).getName().getFirst().charAt(0) + ". " + dataList1.get(i).getName().getMiddle().charAt(0) + ". " + dataList1.get(i).getEmails().toString());
-            }
+            dataList1.forEach(s -> System.out.println(s.getName().getLast()+ " " + s.getName().getFirst().charAt(0) + ". " + s.getName().getMiddle().charAt(0) + ". " + s.getEmails().toString()));
         }
         catch (Exception e) {
             e.printStackTrace();

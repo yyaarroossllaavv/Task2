@@ -20,10 +20,8 @@ public class Task6 implements Response{
             List<Data> dataList1 = dataList.stream()
                     .filter(d -> d.status.equals("DISABLED"))
                     .collect(Collectors.toList());
-            for (int i = 0; i < dataList1.size(); i++) {
-                countriesSet.add(dataList1.get(i).getLocation().state);
-                countriesList.add(dataList1.get(i).getLocation().state);
-            }
+            dataList1.forEach(d1 -> countriesSet.add(d1.getLocation().state));
+            dataList1.forEach(d2 -> countriesList.add(d2.getLocation().state));
             for (String j : countriesSet) {
                 countriesMap.put(j, (int) countriesList.stream().filter(c -> c.equals(j)).count());
             }

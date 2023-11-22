@@ -23,8 +23,8 @@ public class Task4 implements Response {
             List<Data> dataList1 = dataList.stream()
                     .filter(d -> moreThen500(d.monthlySalary))
                     .collect(Collectors.toList());
-            for (int i = 0; i < dataList1.size(); i++) {
-                jobTitleList.add(dataList1.get(i).job.getTitle());
+            for (Data data : dataList1) {
+                jobTitleList.add(data.job.getTitle());
             }
             Collections.sort(jobTitleList);
             for (String s : jobTitleList) {

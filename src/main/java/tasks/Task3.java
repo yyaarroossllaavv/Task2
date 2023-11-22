@@ -1,5 +1,6 @@
 package tasks;
 
+import org.example.CreditCard;
 import org.example.Data;
 import org.example.Root;
 import tasks.Response;
@@ -19,12 +20,8 @@ public class Task3 implements Response {
             HashSet<String> cardsSet = new HashSet<>();
             ArrayList<String> cardsList = new ArrayList<>();
             List<Data> dataList = root.getData();
-            List<Data> dataList1 = dataList.stream()
-                    .collect(Collectors.toList());
-            for (int i = 0; i < dataList1.size(); i++) {
-                cardsSet.add(dataList1.get(i).getCreditCard().getIssuer());
-                cardsList.add(dataList1.get(i).getCreditCard().getIssuer());
-            }
+            dataList.forEach(d -> cardsSet.add(d.getCreditCard().getIssuer()));
+            dataList.forEach(d -> cardsList.add(d.getCreditCard().getIssuer()));
             for (String j:cardsSet) {
                 System.out.println(j + " " + cardsList.stream().filter(c -> c.equals(j)).count());
             }
